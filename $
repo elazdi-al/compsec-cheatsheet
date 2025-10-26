@@ -70,7 +70,7 @@
 		\item[-] \textbf{Anonymity.} protection of an individual's identity from being disclosed or linked to specific actions or data.
 		\item[-] \textbf{Non-repudiation.} assurance that a party in a communication cannot deny the authenticity of their signature or the sending of a message.
 	\end{itemize}
-	\noindent\textbf{The Adversary.} malicious entity aiming at breaching the security policy and \textbf{will} choose the optimal way to use her ressources to mount an attack that violates the security properties.\\
+
 	\noindent \textbf{Threat Model.} describes the ressources available to the adversary and their capabilities \textit{(has access to internet, but doesn't have access to the internal network of the company.)}\\
 	\noindent \textbf{Threat.} Who might attack which assets, using what resources, with what goal, how, and with what probability\\
 	\noindent \textbf{Vulnerability.} Specific weakness that could be exploited by adversaries with interest in a lot of different assets \textit{(API is not protected, password appears in plain text\dots)}\\
@@ -85,21 +85,21 @@
 		\item[-] \textbf{Assets (objects).} anything with value (data, files , memory) that needs to be protected
 		\item[-] \textbf{Principals (subjects).} people, computer programs, services
 	\end{itemize}
+	\textbf{Examples}\\
 	\textit{Confidentiality.} authorized users may read a file\\
 	\textit{Integrity.} authorized programs may write a file\\
 	\textit{Availability.} authorized services can access a file\\
+	\noindent\textbf{The Adversary.} malicious entity aiming at breaching the security policy and \textbf{will} choose the optimal way to use her ressources to mount an attack that violates the security properties.\\
 	\noindent \textbf{Security Mechanism.} Technical mechanism used to ensure that the security policy is not violated by an adversary within the threat model, \textbf{we can only prepare for threats we're aware of} \\\textit{(Policy. ensure messages cannot be read by anyone but the sender and the receiver, Mechanism. encrypt the message before sending)}
 	\noindent \textbf{Composition of Security Mechanisms}
 	\begin{itemize}
 		\item[-] \textbf{Defence in depth.} As long as one remains unbroken the Security Policy isn't broken) \textit{(two-factor auth)}
 		\item[-] \textbf{Weakest Link.} if anyone fails the Security Policy is broken security questions in case of a lost password, no need to know the password but just the answer
 	\end{itemize}
-	\textit{Humans are also part of the mechanism and allow vulnerabilities like phishing attacks, bad use of passwords\dots)}\\
-	\noindent  \textbf{To show a system is secure. (under a \textit{specific} threat model)} \\
-	Attacker - Just one way to violate \textbf{one} security property is enough (within the threat model).\\
-	Defender - No adversary strategy can violate the security policy.\\
-	\noindent \textbf{Security Argument}\\
-	Rigorous argument that the security mechanisms in place are indeed effective in maintaining the security policy subject to the assumptions of the Threat Model.
+	\textit{Humans are also part of the mechanism and allow vulnerabilities like phishing attacks, bad use of passwords\dots)}
+	\noindent  \textbf{To show a system is secure.} \\
+	Attacker - Just one way to violate *one* security property is enough (within the threat model)
+	Defender - No adversary strategy can violate the security policy.
 \end{minipage}
 \newpage
 % Reduce paragraph spacing/indentation:
