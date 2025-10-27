@@ -100,7 +100,68 @@
 	Defender - No adversary strategy can violate the security policy.\\
 	\noindent \textbf{Security Argument}\\
 	Rigorous argument that the security mechanisms in place are indeed effective in maintaining the security policy subject to the assumptions of the Threat Model.
+\end{minipage}\\[8px]
+\hline
+\vspace{8px}
+\noindent \begin{minipage}[htp]{0.49\textwidth}
+	\noindent \textbf{Principles of CompSec.}
+	\begin{itemize}
+		\item[1.] \textbf{Economy of mechanism}\\
+		      Keep the security mechanism/implementation design as simple and small as possible. Why ?
+		      \begin{itemize}
+			      \item[a.] Easier to audit and verify.
+			      \item[b.] Testing is not appropriate to evaluate security.
+		      \end{itemize}
+		      \noindent \textbf{Trusted Computing Base (TCB).}\\
+		      Every component of the system on which the security policy relies upo hardware, firmware, software. \\The TCB is trusted to operate correctly for the security policy to hold. $\to$ If something goes wrong in it, the security policy may be violated\\
+		      It \textbf{must} be kept small to ease verification (economy of mechanism) and diminish the attack surface
+
+		\item[2.]\textbf{Fail-safe defaults.} Base access decisions on permission rather than exclusion. \textit{(Whitelist, do not blacklist)} \\
+		      If something fails, be as secure as it does not fail errors / uncertainty should error on the side of the security policy
+		      Do \textbf{not} try to fix on error !
+		      \begin{itemize}
+			      \item Automated doors: if they cannot close, stay open
+			      \item Form input: if no permission to write in X, do not write anywhere
+		      \end{itemize}
+		\item[3.]  \textbf{Complete mediation.}
+		      \textbf{Every} access to every object must be checked for authority
+		      A Reference Monitor mediates all actions from subjects on objects and ensures they are according to the policy. Tradeoff time\_to\_check vs. time\_to\_use
+		\item[4.] \textbf{Open design} The design should not be secret
+		      \begin{itemize}
+			      \item Always design as if the enemy knows the system.
+			      \item When you design...
+			            \begin{itemize}
+				            \item	Crypto. Only keep the key secret
+				            \item Authentication. Only keep the password secret
+				            \item Obfuscation. Only keep the used noise secret
+			            \end{itemize}
+		      \end{itemize} assuming the thread model can't get a hold of the system is unrealistic (employee corruption, ...)
+	\end{itemize}
 \end{minipage}
+\hfill
+\noindent \begin{minipage}[htp]{0.49\textwidth}
+	\begin{itemize}
+		\item[5.] \textbf{Separation of privilege.}	No single accident, deception, or breach of trust is sufficient to compromise the protected information
+		      \begin{itemize}
+			      \item \textbf{Privilege.}\
+			            A privilege allows a user to perform an action on a computer system that may have security consequences. \textit{(create a file in a directory, access a device, write to a socket for communicating over the internet\dots)}
+		      \end{itemize}
+
+		\item[6.] \textbf{Least Privilege.}\\
+		      Every program and every user of the system should operate using the least set of privileges necessary to complete the job. \textit{Rights are added as needed, discarded after use. Users should get to know about things if they \textbf{have} to.}
+
+		\item[7.] \textbf{Least Common Mechanism}\\
+		      Minimize the amount of mechanism common to more than one user and depended on by all users. Every shared mechanism represents a potential information path between users.
+		\item[8.] \textbf{Psychological acceptability}
+		      It is essential that the human interface be designed for ease of use, so that users routinely and automatically apply the protection mechanisms correctly. \textit{(hide complexity, keep ressources as accessible as before,mental model of users must match security policy/mechanisms, cultural acceptability\dots)}
+		\item[9.] \textbf{Work Factor}\\
+		      Compare the cost of breaking the mechanism with the resources of a potential attacker. \textit{(cost of compromising insiders, cost of finding a bug, monetization\dots)}
+		\item[10.] \textbf{Compromise recording}\\
+		      Reliably record that a compromise of information has occurred [...] in place of more elaborate mechanisms that completely prevent loss.
+		      (\textit{keep tamper-evidence logs, what if you cannot recover them? (confidentiality), how to keep integrity ? (Blockchain), logs may be a vulnerability ? (Privacy), logging the log ? (Availability)}\ldots)
+	\end{itemize}
+\end{minipage}
+
 \newpage
 % Reduce paragraph spacing/indentation:
 \setlength{\parindent}{0pt}
